@@ -1,0 +1,22 @@
+.LoadMore {
+  background-color: #6c9ae2;
+  border-radius: 1em;
+  color: white;
+  cursor:pointer;
+  display:block;
+  margin:auto;
+  margin-bottom:4em;
+  margin-top:1em;
+  padding-bottom:.5em;
+  padding-top:.5em;
+  text-align: center;
+  width:100px;
+}
+
+.LoadMore:hover {
+  color: #ccdffc;
+}
+
+.LoadMoreHidden {
+  display: none;
+}

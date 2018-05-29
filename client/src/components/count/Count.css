@@ -1,0 +1,24 @@
+
+.CountItem {
+  float:left;
+  padding-right:1em;
+}
+
+.CountItem-Vertices:before{
+  background:url('/icons8-points.png');
+  background-size: 1em 1em;
+  content: '';
+  float:left;
+  height: 1em;
+  margin-right:2px;
+  width: 1em;
+}
+.CountItem-Polygons:before{
+  background:url('/icons8-faces.png');
+  background-size: 1em 1em;
+  content: '';
+  float:left;
+  height: 1em;
+  margin-right:2px;
+  width: 1em;
+}

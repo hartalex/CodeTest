@@ -1,0 +1,31 @@
+---
+ratings:
+  paths:
+  - "**.js"
+  - "**.css"
+  - "**.md"
+plugins:
+  nodesecurity:
+    enabled: true
+  markdownlint:
+    enabled: true
+  git-legal:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  csslint:
+    enabled: true
+exclude_paths:
+- /server/node_modules/**/*
+- /server/build/**/*
+- /client/node_modules/**/*
+- /client/build/**/*
+- /client/jest/**/*
+- /client/public/**/*
+- /client/scripts/**/*
+- /client/config/**/*
+- /server/coverage/**/*
+- /client/coverage/**/*
+- /client/src/components/loading/Loading.js

@@ -1,0 +1,28 @@
+.SearchInput {
+  border-radius:5px;
+  border-style:none;
+  color:#6c9ae2;
+  display:block;
+  font-size:2em;
+  font-weight:bold;
+  margin:auto;
+  padding:.25em;
+}
+
+@media only screen and (max-device-width : 476px),only screen and (max-width: 476px){
+  .SearchInput {
+    width:360px;
+  }
+}
+
+@media only screen and (max-device-width : 420px),only screen and (max-width: 420px){
+  .SearchInput {
+    width:250px;
+  }
+}
+
+@media only screen and (max-device-width : 336px),only screen and (max-width: 336px){
+  .SearchInput {
+    margin:20px;
+  }
+}

@@ -1,0 +1,81 @@
+
+.Model {
+  background: linear-gradient(to bottom right, #ccdffc, #6c9ae2, #ccdffc);
+  border-radius: 5px;
+  display:block;
+  float:left;
+  margin-right:1em;
+  padding: .5em;
+}
+
+.Model-thumbnail {
+  background-size: 480px 320px;
+  border-radius: 5px;
+  height:320px;
+  width:480px;
+}
+
+.Model-iframe {
+  border-radius: 5px;
+  height:320px;
+  visibility: hidden;
+  width:480px;
+}
+
+@media only screen and (max-device-width : 768px),only screen and (max-width: 768px){
+  .Model {
+    float:none;
+    height:320px;
+    margin:auto;
+    width:480px;
+  }
+  .Model-thumbnail {
+    background-size: 480px 320px;
+    height:320px;
+    width:480px;
+  }
+}
+
+@media only screen and (max-device-width : 527px),only screen and (max-width: 527px){
+  .Model {
+    float:none;
+    height:240px;
+        margin:auto;
+    width:360px;
+
+  }
+  .Model-thumbnail {
+    background-size: 360px 240px;
+    height:240px;
+    width:360px;
+  }
+  .Model-iframe {
+    height:240px;
+    width:360px;
+  }
+}
+
+@media only screen and (max-device-width : 408),only screen and (max-width: 408px){
+  .Model {
+    float:none;
+    height:240px;
+    margin:auto;
+    width:272px;
+  }
+  .Model-thumbnail {
+    background-size: 272px 240px;
+    height:240px;
+    width:272px;
+  }
+  .Model-iframe {
+    height:240px;
+    width:272px;
+  }
+}
+
+@media only screen and (max-device-width : 336px),only screen and (max-width: 336px){
+  .Model {
+    float:none;
+    margin:0;
+  }
+}
