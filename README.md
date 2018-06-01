@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/3fdf6790927d15c81990/maintainability)](https://codeclimate.com/github/hartalex/CodeTest/maintainability)
+
 # NM Codetest
 
 This project consists of two sub projects.
