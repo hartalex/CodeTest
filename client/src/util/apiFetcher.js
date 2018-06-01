@@ -21,24 +21,29 @@ const nSecondsHaveElapsed = (seconds) => {
 
 export async function apiFetchData(query, offset, actions) {
   if (typeof offset === 'undefined') { offset = 0 }
-  if (query === '') { actions.fetchDataComplete() }
-  else {
-    if ( queryHasChanged(query, offset) || (queryHasNotChanged(query, offset) && nSecondsHaveElapsed(5))) {
-      lastQueryValue = query
-      lastQueryTime = new Date()
-      lastOffset = offset
-      actions.fetchDataStart(query)
-      try {
-        let response = await fetch(API_URL + '?offset=' + offset + '&q=' + query,
-          {headers: {'Content-Type': 'application/json'}})
-        let data = await fetchJsonResponseHandler(response)
-        // got data
-        actions.fetchDataComplete(data, offset !== 0)
-      } catch(error) {
-        // display error
-        actions.setError('API Error', error.message)
-        actions.fetchDataComplete()
-      }
-    }
+  if (query === '') {
+    // clear current data
+    actions.fetchDataComplete()
+  } else if ( queryHasChanged(query, offset) || (queryHasNotChanged(query, offset) && nSecondsHaveElapsed(5))) {
+    // fetch from api
+    fetchData(query, offset, actions)
+  }
+}
+
+export async function fetchData(query, offset, actions) {
+  lastQueryValue = query
+  lastQueryTime = new Date()
+  lastOffset = offset
+  actions.fetchDataStart(query)
+  try {
+    let response = await fetch(API_URL + '?offset=' + offset + '&q=' + query,
+      {headers: {'Content-Type': 'application/json'}})
+    let data = await fetchJsonResponseHandler(response)
+    // got data
+    actions.fetchDataComplete(data, offset !== 0)
+  } catch(error) {
+    // display error
+    actions.setError('API Error', error.message)
+    actions.fetchDataComplete()
   }
 }
