@@ -42,8 +42,12 @@ export async function fetchData(query, offset, actions) {
     // got data
     actions.fetchDataComplete(data, offset !== 0)
   } catch(error) {
+    let msg = error
     // display error
-    actions.setError('API Error', error.message)
+    if (error && error.message) {
+      msg = error.message
+    }
+    actions.setError('API Error', msg)
     actions.fetchDataComplete()
   }
 }
