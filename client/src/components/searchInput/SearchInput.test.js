@@ -22,20 +22,16 @@ it('renders input value', () => {
   input.instance().value = ''
 })
 
-it('renders input no value', () => {
+const testInput = (keyCode) => {
+  it('renders input no value', () => {
   const div = document.createElement('div')
   document.body.appendChild(div)
   const wrapper = mount(<SearchInput store={mockStore()}/>,
     {attachTo: div})
   const input = wrapper.find('input')
-    input.simulate('keyUp', { keyCode:83, which:83, key: "s"});
-})
+    input.simulate('keyUp', { keyCode:keyCode});
+  })
+}
 
-it('renders input enter', () => {
-  const div = document.createElement('div')
-  document.body.appendChild(div)
-  const wrapper = mount(<SearchInput store={mockStore()}/>,
-    {attachTo: div})
-  const input = wrapper.find('input')
-  input.simulate('keyUp', {  keyCode:13, which:13, key: "Enter"} );
-})
+testInput(87)
+testInput(13)

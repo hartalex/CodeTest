@@ -11,7 +11,7 @@ export function getActions(dispatch) {
       },
       setError: function (title, message) {
         dispatch({'type': 'SetError',
-          'error':{title:title , description: message}})
+          'error':{'title':title , 'description': message}})
       }
     }
   }

@@ -7,17 +7,22 @@ import './SearchInput.css'
 import {apiFetchData} from '../../util/apiFetcher'
 import {getActions} from '../../redux/actions/actions'
 
+const getQueryValue = () => {
+  let retval = ''
+  let searchBarValue = document.getElementById("search").value
+  if (searchBarValue.length > 0) {
+    retval = encodeURIComponent(searchBarValue)
+  } else {
+    retval = ''
+  }
+  return retval
+}
 
 const searchInputRenderer = ({actions}) => {
   let query = ''
   let debounceSearch = debounce(() => apiFetchData(query, 0, actions), 2000, false)
   const onKeyUp = (event) => {
-   var searchBarValue = document.getElementById("search").value
-   if (searchBarValue.length > 0) {
-     query = encodeURIComponent(searchBarValue)
-   } else {
-     query = ''
-   }
+   query = getQueryValue()
    // user pressed enter
    if (event.keyCode === 13) {
      debounceSearch.cancel()
@@ -26,7 +31,6 @@ const searchInputRenderer = ({actions}) => {
      debounceSearch()
    }
  }
-
   return (
     <div className="SearchInputComponent">
       <input className="SearchInput" type="text" id="search"
