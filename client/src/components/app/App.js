@@ -5,11 +5,11 @@ import SearchInput from '../searchInput/SearchInput'
 import DataList from '../dataList/DataList'
 import Loading from '../loading/Loading'
 import Error from '../error/Error'
-import Reducers from '../../redux/reducers'
+import {reduce} from '../../redux/reducers'
 import LoadMore from '../loadMore/LoadMore'
 import './App.css'
 
-let store = createStore(Reducers,
+let store = createStore(reduce,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends Component {

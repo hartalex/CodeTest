@@ -4,7 +4,7 @@ import fetchDataComplete from './reducers/fetchDataComplete'
 import setError from './reducers/setError'
 import clearError from './reducers/clearError'
 
-const initialState = {
+export const initialState = {
   loadingIsHidden:true,
   error: null,
   data: [],
@@ -17,24 +17,24 @@ const initialState = {
   offset: 0
 }
 
-export default function reduce(state, action) {
+export function reduce(state, action) {
   if (typeof state === 'undefined') { state = initialState }
-  let nextState = {}
+  let getNextState
   switch(action.type) {
     case 'FetchDataStart':
-      nextState = fetchDataStart(state, action)
+      getNextState = fetchDataStart
       break;
     case 'FetchDataComplete':
-      nextState = fetchDataComplete(state, action)
+      getNextState = fetchDataComplete
       break;
     case 'SetError':
-      nextState = setError(state, action)
+      getNextState = setError
       break;
     case 'ClearError':
-      nextState = clearError(state, action)
+      getNextState = clearError
       break;
     default:
-      nextState = defaultAction(state, action)
+      getNextState = defaultAction
   }
-  return nextState
+  return getNextState(state, action)
 }
