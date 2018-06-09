@@ -1,0 +1,27 @@
+sudo: required
+cache:
+  directories:
+    - node_modules
+language:
+  - node_js
+stages:
+  - name: build
+    if: type IN (push, pull_request)
+services:
+  - docker
+node_js:
+  - 9.11.1
+jobs:
+  include:
+    - stage: build
+      script:
+        - yarn --cwd client
+        - yarn --cwd client run test
+        - yarn --cwd client run build
+        - yarn global add codeclimate-test-reporter
+        - codeclimate-test-reporter < client/coverage/lcov.info
+notifications:
+    slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
+addons:
+  code_climate:
+    repo_token: e8fdab506becc35bad0c8bd531df5398a05450c890ebb52517f5fc8d468da83d
